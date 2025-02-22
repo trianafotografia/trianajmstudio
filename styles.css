@@ -373,45 +373,6 @@ body {
     text-align: center;
 }
 
-/* Contenedor del video */
-.video-container {
-    position: relative;
-    display: inline-block;
-    margin: 1rem;
-}
-
-/* Estilo para el video */
-.trailer-video {
-    width: 100%;
-    max-width: 700px;
-    height: auto;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-/* Botón Play */
-.play-button {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 3rem;
-    color: white;
-    background: rgba(0, 0, 0, 0.6);
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 10;
-}
-
-/* Ocultar el botón Play cuando el video esté reproduciéndose */
-.trailer-video.playing + .play-button {
-    display: none;
-}
 
 /* Descripción del video */
 .video-caption {

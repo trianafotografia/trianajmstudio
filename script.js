@@ -90,22 +90,3 @@ document.querySelectorAll('.sidebar ul li a').forEach(link => {
         sidebar.classList.remove('active');
     });
 });
-
-// Seleccionar todos los contenedores de videos
-document.querySelectorAll('.video-container').forEach(container => {
-    const video = container.querySelector('.trailer-video');
-    const playButton = container.querySelector('.play-button');
-
-    // Agregar evento al hacer clic en el botón Play
-    playButton.addEventListener('click', () => {
-        // Reproducir el video
-        video.play();
-        // Agregar la clase "playing" al video para ocultar el botón Play
-        video.classList.add('playing');
-    });
-
-    // Opcional: Mostrar el botón Play si el usuario pausa el video
-    video.addEventListener('pause', () => {
-        video.classList.remove('playing');
-    });
-});
