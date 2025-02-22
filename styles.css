@@ -1,0 +1,454 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* General */
+body {
+    font-family: 'Lato', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #F7F7F7;
+}
+
+/* Ocultar el menú de escritorio por defecto */
+.desktop-menu {
+    display: none;
+}
+
+/* Mostrar el menú de escritorio en pantallas grandes */
+@media (min-width: 768px) {
+    .desktop-menu {
+        display: flex; /* Muestra el menú */
+        justify-content: flex-end; /* Alinea las opciones a la derecha */
+        align-items: center;
+        background: white; /* Fondo oscuro neutral */
+        padding: 0.5rem 1rem;
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 999;
+    }
+
+    .desktop-menu ul {
+        list-style: none;
+        display: flex;
+        gap: 1rem; /* Espaciado entre los enlaces */
+        margin: 0;
+        padding: 0;
+    }
+
+    .desktop-menu li {
+        margin: 0;
+    }
+
+    .desktop-menu li a {
+        text-decoration: none;
+        color: black; /* Texto blanco */
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+        transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .desktop-menu li a:hover {
+        color: #d993f4; /* Texto oscuro sobre el fondo amarillo */
+        border-radius: 5px;
+    }
+
+    /* Ocultar el menú hamburguesa en pantallas grandes */
+    .hamburger-menu,
+    .sidebar {
+        display: none;
+    }
+}
+/* Mostrar el menú hamburguesa en pantallas pequeñas */
+@media (max-width: 767px) {
+    .hamburger-menu {
+        display: block; /* Muestra el botón hamburguesa */
+        position: fixed;
+        top: 15px;
+        left: 15px;
+        width: 30px;
+        height: 20px;
+        cursor: pointer;
+        z-index: 1000;
+    }
+
+    /* Estilo de las barras del botón hamburguesa */
+    .hamburger-menu .bar {
+        background: #333;
+        height: 3px;
+        margin: 5px 0;
+        border-radius: 5px;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    /* Cambios al hacer clic */
+    .hamburger-menu.active .bar:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+    .hamburger-menu.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger-menu.active .bar:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+
+    /* Sidebar para móviles */
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: -200px; /* Fuera de la pantalla */
+        width: 200px;
+        height: 100%;
+        background: #fcf4ff;
+        transition: left 0.3s ease;
+        z-index: 999;
+    }
+
+    .sidebar.active {
+        left: 0; /* Se desliza hacia la derecha */
+    }
+
+    /* Estilo para los enlaces del sidebar */
+    .sidebar ul {
+        list-style: none;
+        width: 100%;
+        text-align: center;
+        padding-top: 2rem;
+    }
+
+    .sidebar ul li a {
+        display: block;
+        padding: 1rem;
+        text-decoration: none;
+        color: #333;
+        transition: background 0.3s ease;
+    }
+
+    .sidebar ul li a:hover {
+        background: #d993f4;
+        color: white;
+    }
+}
+
+/* Estilo para el contenedor del logo */
+.logo-container {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    margin-top: 20px; /* Espacio entre el último enlace y el logo */
+    padding-bottom: 10px; /* Espaciado inferior */
+}
+
+/* Estilo para el logo */
+.logo {
+    max-width: 80px; /* Tamaño máximo del logo */
+    height: auto; /* Mantén la proporción */
+    border-radius: 50%; /* Opcional: redondea el logo si es circular */
+    transition: transform 0.3s ease; /* Efecto hover */
+}
+.logo:hover {
+    transform: scale(1.1); /* Amplifica ligeramente el tamaño */
+}
+
+/* Estilo para el header con fondo */
+.hero {
+    position: relative;
+    height: 100vh; /* Tamaño completo de la pantalla */
+    background-image: url('images/encabezado.jpg'); /* Ruta de la imagen */
+    background-size: cover; /* Ajusta la imagen al contenedor */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que se repita la imagen */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white; /* Color del texto sobre la imagen */
+    text-align: center;
+    font-family: 'Poppins';
+    font-size: 25px;
+    
+}
+
+/* Overlay opcional para mejorar la legibilidad */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    z-index: 1;
+}
+
+/* Contenido dentro del header */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+    
+}
+
+/* Botón dentro del header */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #f0cefe; /* Color del botón */
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: large;
+    transition: background-color 0.3s ease;
+    font-family: 'Oswald';
+    
+}
+.btn:hover {
+    background-color: #d993f4; /* Cambio de color al pasar el mouse */
+}
+
+/* About Section */
+.about {
+    padding: 5rem 1rem;
+    background: #fcf4ff;
+    text-align: center;
+}
+.about h2 {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 1rem;
+}
+.about p {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    line-height: 1.8;
+}
+
+/* Galería */
+.gallery {
+    padding: 5rem 1rem;
+    background: #F7F7F7;
+    text-align: center;
+}
+.gallery h2 {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 2rem;
+}
+.gallery .photos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Ajuste responsivo */
+    gap: 1rem;
+}
+.gallery .photos img {
+    width: 100%; /* Ocupa todo el ancho disponible */
+    height: auto; /* Mantiene la proporción */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+.gallery .photos img:hover {
+    transform: scale(1.05);
+}
+
+/* Estilo base para las imágenes */
+.photo-item {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+/* Estilo para el tooltip */
+.photo-item::after {
+    content: attr(data-tooltip); /* Obtiene el texto del atributo data-tooltip */
+    position: absolute;
+    top: 0; /* Posiciona el tooltip en toda la imagen */
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente */
+    color: white;
+    display: flex; /* Centra el texto verticalmente y horizontalmente */
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-family: 'Great Vibes';
+    opacity: 0; /* Oculto por defecto */
+    transition: opacity 0.3s ease; /* Transición suave */
+    pointer-events: none; /* Evita que el tooltip interfiera con los clics */
+}
+
+/* Mostrar el tooltip al pasar el mouse */
+.photo-item:hover::after {
+    opacity: 1; /* Muestra el tooltip */
+}
+
+/* Cambiar la opacidad de la imagen al pasar el mouse */
+.photo-item img {
+    transition: opacity 0.3s ease; /* Transición suave */
+}
+
+.photo-item:hover img {
+    opacity: 0.5; /* Reduce la opacidad de la imagen */
+}
+/* Modal para galería */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    position: relative;
+}
+
+#modal-img {
+    max-width: 90%;
+    max-height: 80%;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #f1f1f1;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+     z-index: 10; /* Asegúrate de que esté por encima de otros elementos */
+    transition: color 0.3s ease;
+}
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#prev,
+#next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    user-select: none;
+    padding: 10px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s ease;
+}
+#prev:hover,
+#next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+#prev {
+    left: 30px;
+}
+#next {
+    right: 30px;
+}
+
+/* Estilo para la sección de trailers */
+.trailers {
+    padding: 5rem 1rem;
+    background: #F7F7F7;
+    text-align: center;
+}
+
+/* Contenedor del video */
+.video-container {
+    position: relative;
+    display: inline-block;
+    margin: 1rem;
+}
+
+/* Estilo para el video */
+.trailer-video {
+    width: 100%;
+    max-width: 700px;
+    height: auto;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* Botón Play */
+.play-button {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    color: white;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+}
+
+/* Ocultar el botón Play cuando el video esté reproduciéndose */
+.trailer-video.playing + .play-button {
+    display: none;
+}
+
+/* Descripción del video */
+.video-caption {
+    margin-top: 0.5rem;
+    font-size: 20px;
+    font-family: 'Great Vibes';
+    color: #333;
+}
+/* Contact Section */
+.contact {
+    padding: 5rem 1rem;
+    background: #fff;
+    text-align: center;
+}
+.contact h2 {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 1rem;
+}
+.instagram-link {
+    font-size: 1rem;
+    color: #333;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+}
+.instagram-link i {
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+}
+.instagram-link:hover {
+    color: #D4AF37;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: #333;
+    color: white;
+}
